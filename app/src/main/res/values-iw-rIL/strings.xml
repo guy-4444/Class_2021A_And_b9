@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Class_2021A_And_b9</string>
+    <string name="continue_">המשך</string>
+    <string name="next">הבא</string>
+    <string name="ok">אישור</string>
+    <string name="cancel">ביטול</string>
+    <string name="phone_number">מספר טלפון</string>
+    <string name="verification_code">קוד אימות</string>
+</resources>

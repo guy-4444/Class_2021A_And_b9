@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Class_2021A_And_b9</string>
+
+
+
+    <string name="continue_">Continue</string>
+    <string name="next">Next</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="verification_code">Verification Code</string>
+
+</resources>

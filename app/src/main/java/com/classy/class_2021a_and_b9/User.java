@@ -5,6 +5,7 @@ public class User {
     private String uid = "";
     private String name = "";
     private String phone = "";
+    private String favoriteProduct;
 
     public User() { }
 
@@ -32,6 +33,15 @@ public class User {
 
     public User setPhone(String phone) {
         this.phone = phone;
+        return this;
+    }
+
+    public String getFavoriteProduct() {
+        return favoriteProduct;
+    }
+
+    public User setFavoriteProduct(String favoriteProduct) {
+        this.favoriteProduct = favoriteProduct;
         return this;
     }
 }

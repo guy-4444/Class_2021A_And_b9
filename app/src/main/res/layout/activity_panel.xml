@@ -28,6 +28,26 @@
             android:layout_height="wrap_content"
             android:text="update user"/>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#0000FF"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </RelativeLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/panel_BTN_updateItems"
             android:layout_width="wrap_content"

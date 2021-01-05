@@ -1,5 +1,6 @@
 package com.classy.class_2021a_and_b9;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
@@ -28,6 +29,8 @@ public class Activity_Panel extends AppCompatActivity {
 
     private HashMap<String, Product> productsMap = new HashMap<>();
 
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,7 @@ public class Activity_Panel extends AppCompatActivity {
         findViews();
         initViews();
         generateProducts();
+        user = new User().setName("Guest");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("products");
@@ -67,7 +71,9 @@ public class Activity_Panel extends AppCompatActivity {
 
                 try {
                     User value = dataSnapshot.getValue(User.class);
-                    panel_LBL_name.setText("Hi " + value.getName());
+                    user = value;
+                    panel_LBL_name.setText("Hi " + user.getName());
+                    updateFavoriteProduct();
                     Log.d("pttt", "Value is: " + value);
                 } catch (Exception ex) { }
             }
@@ -79,6 +85,29 @@ public class Activity_Panel extends AppCompatActivity {
             }
         });
     }
+
+    private void updateFavoriteProduct() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("products");
+        ValueEventListener vel = myRef.child(user.getFavoriteProduct()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Product product = dataSnapshot.getValue(Product.class);
+                if (product == null) {
+                    return;
+                }
+                panel_LBL_name.setText("Hi " + user.getName() + "\n" + product.getName() + " " + product.getPrice() + " $");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+
 
     private void generateProducts() {
         productsMap.put("P0001", new Product()
@@ -108,7 +137,8 @@ public class Activity_Panel extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("products");
 
         for (Map.Entry<String, Product> entry : productsMap.entrySet()) {
-            myRef.push().setValue(entry.getValue());
+            Product product = entry.getValue();
+            myRef.child(product.getKey()).setValue(product);
         }
     }
 
@@ -124,7 +154,8 @@ public class Activity_Panel extends AppCompatActivity {
         User user = new User()
                 .setName("Stav Finz")
                 .setPhone(phone)
-                .setUid(uid);
+                .setUid(uid)
+                .setFavoriteProduct("P0002");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users");

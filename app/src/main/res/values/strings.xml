@@ -2,7 +2,6 @@
     <string name="app_name">Class_2021A_And_b9</string>
 
 
-
     <string name="continue_">Continue</string>
     <string name="next">Next</string>
     <string name="ok">Ok</string>
@@ -10,4 +9,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="verification_code">Verification Code</string>
 
+    <string name="sign_in_cancelled">Sign In Cancelled</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="unknown_error">unknown error</string>
 </resources>

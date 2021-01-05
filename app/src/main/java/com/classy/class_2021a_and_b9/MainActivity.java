@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         String uid = user.getUid();
         String name = user.getDisplayName();
         String phn = user.getPhoneNumber();
+
         if (user != null) {
             // open menu activity
             finish();

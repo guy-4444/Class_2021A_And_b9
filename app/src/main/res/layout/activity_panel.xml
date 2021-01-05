@@ -14,7 +14,22 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/panel_LBL_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:text="user Name"/>
+
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/panel_BTN_updateUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="update user"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/panel_BTN_updateItems"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="update user"/>
